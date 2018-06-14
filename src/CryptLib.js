@@ -2,8 +2,8 @@
 /*global console*/
 'use strict';
 
-import crypto from 'crypto';
-import BufferList from 'bl';
+const crypto = require('crypto');
+const BufferList = require('bl');
 
 /**
  * CrossPlatform CryptLib
@@ -162,4 +162,4 @@ class CryptLib {
   }
 }
 
-export default new CryptLib();
+module.exports = new CryptLib();

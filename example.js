@@ -1,7 +1,7 @@
 /*global require*/
 
-var /* cryptLib = require('cryptlib'), // Use this require if you load module through npm */
-    cryptLib = require('./dist/CryptLib.js'),
+const /* cryptLib = require('cryptlib'), // Use this require if you load module through npm */
+    cryptLib = require('./src/CryptLib.js'),
     plainText = 'This is the text to be encrypted',
     iv = cryptLib.generateRandomIV(16), //16 bytes = 128 bit
     key = cryptLib.getHashSha256('my secret key', 32), //32 bytes = 256 bits
