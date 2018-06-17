@@ -116,6 +116,18 @@ class CryptLib {
     return _iv.join('');
   }
 
+  generateRandomIV16() {
+    let randomBytes = crypto.randomBytes(16),
+      _iv = [];
+
+    for (let i = 0; i < 16; i++) {
+      let ptr = randomBytes[i] %
+        this._characterMatrixForRandomIVStringGeneration.length;
+      _iv[i] = this._characterMatrixForRandomIVStringGeneration[ptr];
+    }
+    return _iv.join('');
+  }
+
   /**
    * Creates a hash of a key using SHA-256 algorithm
    * @param  {string} key     the key that will be hashed
@@ -159,6 +171,15 @@ class CryptLib {
    */
   decrypt(encryptedText, key, initVector) {
     return this._encryptDecrypt(encryptedText, key, initVector, false);
+  }
+
+  encryptPlainTextWithRandomIV(plainText, key) {
+    return this._encryptDecrypt(this.generateRandomIV16() + plainText, this.getHashSha256(key, 32), this.generateRandomIV16(), true);
+  }
+
+  decryptCipherTextWithRandomIV(cipherText, key) {
+    let out = this._encryptDecrypt(cipherText, this.getHashSha256(key, 32), this.generateRandomIV16(), false);
+    return out.substring(16, out.length);
   }
 }
 

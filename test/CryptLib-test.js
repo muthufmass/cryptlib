@@ -244,5 +244,24 @@ describe('CryptLib', function() {
     });
   });
 
+  describe('encryptPlainTextWithRandomIV() and decryptCipherTextWithRandomIV() tests', function() {
+    const plainText = "this is my plain text";
+    const key = "your key";
+
+    it('test with randomIV with Simple string', function () {
+      let cipherTest = cryptLib.encryptPlainTextWithRandomIV(plainText, key);
+      expect(cryptLib.decryptCipherTextWithRandomIV(cipherTest, key)).to.equal(plainText);
+    });
+
+    it('test with randomIV with JSON', function () {
+      let cipherText = cryptLib.encryptPlainTextWithRandomIV('{"asdf": "asdf", "dfadsf" : {"asdf": ["asdf", "asdf"], "cdad": true, "asdfd": 22}}'
+        , 'simple key');
+      expect(cryptLib.decryptCipherTextWithRandomIV(cipherText, 'simple key')).to.equal('{"asdf": "asdf", "dfadsf" : {"asdf": ["asdf", "asdf"], "cdad": true, "asdfd": 22}}')
+
+    });
+
+
+  });
+
 });
 
