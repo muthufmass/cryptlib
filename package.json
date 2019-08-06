@@ -39,12 +39,12 @@
     "Decryption"
   ],
   "dependencies": {
-    "bl": "1.0.0"
+    "bl": "3.0.0"
   },
   "devDependencies": {
     "@types/node": "^12.6.9",
-    "chai": "^2.3.0",
-    "mocha": "^2.2.4"
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0"
   },
   "engine": "node >= 10.16.1",
   "homepage": "https://github.com/skavinvarnan/cryptlib",
