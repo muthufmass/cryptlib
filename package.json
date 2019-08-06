@@ -46,7 +46,7 @@
     "chai": "^2.3.0",
     "mocha": "^2.2.4"
   },
-  "engine": "node >= 8.2.1",
+  "engine": "node >= 10.16.1",
   "homepage": "https://github.com/skavinvarnan/cryptlib",
   "bugs": {
     "url": "https://github.com/skavinvarnan/cryptlib/issues"
